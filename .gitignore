@@ -135,3 +135,5 @@ _NCrunch*
 # Own things
 node_modules/
 appsettings.json
+src/.vs/Lunchbox/xs
+.vs/Lunchbox/xs
