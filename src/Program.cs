@@ -19,29 +19,10 @@ namespace Lunchbox
     {
         public static int Main(string[] args)
         {
-            return StartWebserver(args);
-        }
 
-        public static int StartWebserver(string[] args)
-        {            
-            Log.Logger =
-                new LoggerConfiguration()
-                    .MinimumLevel.Warning()
-                    .WriteTo.Console()
-                    .WriteTo.PostgreSQL(SerilogConfig.ConnectionString, SerilogConfig.TableName, SerilogConfig.ColumnWriters,
-                                        respectCase: true, restrictedToMinimumLevel: LogEventLevel.Warning)
-                    .CreateLogger();
-
-            Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine("[Serilog] " + msg));
             try
             {
-                WebHost.CreateDefaultBuilder(args)
-                            .UseSerilog()
-                            .UseContentRoot(Directory.GetCurrentDirectory())
-                            .UseStartup<Startup>()
-                            .Build()
-                            .Run();
-
+                CreateWebHostBuilder(args).Build().Run();
                 return 0;
             }
             catch (Exception exc)
@@ -53,6 +34,24 @@ namespace Lunchbox
             {
                 Log.CloseAndFlush();
             }
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            Log.Logger =
+                new LoggerConfiguration()
+                    .MinimumLevel.Warning()
+                    .WriteTo.Console()
+                    .WriteTo.PostgreSQL(SerilogConfig.ConnectionString, SerilogConfig.TableName, SerilogConfig.ColumnWriters,
+                                        respectCase: true, restrictedToMinimumLevel: LogEventLevel.Warning)
+                    .CreateLogger();
+
+            Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine("[Serilog] " + msg));
+
+            return WebHost.CreateDefaultBuilder(args)
+                        .UseSerilog()
+                        .UseContentRoot(Directory.GetCurrentDirectory())
+                        .UseStartup<Startup>();
         }
     }
 }
