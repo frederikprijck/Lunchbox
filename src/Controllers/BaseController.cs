@@ -25,7 +25,7 @@ namespace Lunchbox.Controllers
 
         [HttpGet("{id}")]
         public TEntity Get(int id) {
-            return _context.Set<TEntity>().Where(e => e.Id == id).FirstOrDefault();
+            return _context.Set<TEntity>().FirstOrDefault(x => x.Id == id);
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace Lunchbox.Controllers
             return CreatedAtAction(nameof(entity), new { id = entity.Id }, entity);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] TEntity entity)
         {
             if(id != entity.Id)

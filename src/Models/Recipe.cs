@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Lunchbox.Models
 {
-    public class Recipe: DbEntity
+    public class Recipe: AuditableDbEntity
     {
         public Recipe() 
         {
