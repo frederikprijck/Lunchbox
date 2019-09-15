@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{0C6BAC60-EC08-40DC-96BE-0C351EC70945}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="50" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="4" Column="1" />
+      <File FileName="wwwroot/js/Tutorial.jsx" Line="9" Column="69" />
+      <File FileName="wwwroot/index.html" Line="5" Column="7" />
+      <File FileName="Program.cs" Line="53" Column="58" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Lunchbox" expanded="True">
+            <Node name="Lunchbox" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="js" expanded="True" />
+              </Node>
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Lunchbox PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
