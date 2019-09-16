@@ -1,5 +1,4 @@
-﻿using System;
-namespace Lunchbox.Models
+﻿namespace Lunchbox.Models
 {
     public class RecipeStep : AuditableDbEntity
     {

@@ -1,5 +1,4 @@
-﻿using System;
-using Lunchbox.Models;
+﻿using Lunchbox.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lunchbox
