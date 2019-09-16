@@ -31,9 +31,16 @@ namespace Lunchbox.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] TEntity entity)
         {
+            // Check before cast. 'as' turns entity into null when it fails
+            if (entity is AuditableDbEntity) {
+                (entity as AuditableDbEntity).CreatedBy = "System";
+                (entity as AuditableDbEntity).CreatedOn = DateTime.Now;
+                (entity as AuditableDbEntity).ModifiedBy = "System";
+                (entity as AuditableDbEntity).ModifiedOn = DateTime.Now;
+            }
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(entity), new { id = entity.Id }, entity);
+            return Ok();
         }
 
         [HttpPut("{id}")]
@@ -42,6 +49,11 @@ namespace Lunchbox.Controllers
             if(id != entity.Id)
             {
                 return BadRequest();
+            }
+            if (entity is AuditableDbEntity)
+            {
+                (entity as AuditableDbEntity).ModifiedBy = "System";
+                (entity as AuditableDbEntity).ModifiedOn = DateTime.Now;
             }
             _context.Entry<TEntity>(entity).State = EntityState.Modified;
             _context.SaveChanges();

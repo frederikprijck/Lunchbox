@@ -3,15 +3,17 @@ using System;
 using Lunchbox;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Lunchbox.Migrations
 {
     [DbContext(typeof(LunchboxContext))]
-    partial class LunchboxContextModelSnapshot : ModelSnapshot
+    [Migration("20190916183201_RecipeStep")]
+    partial class RecipeStep
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,7 +66,7 @@ namespace Lunchbox.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("RecipeSteps");
+                    b.ToTable("RecipeStep");
                 });
 
             modelBuilder.Entity("Lunchbox.Models.RecipeStep", b =>

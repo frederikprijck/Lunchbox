@@ -11,5 +11,6 @@ namespace Lunchbox
         }
 
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<RecipeStep> RecipeSteps { get; set; }
     }
 }
