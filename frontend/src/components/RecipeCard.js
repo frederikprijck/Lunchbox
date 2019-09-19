@@ -8,30 +8,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { CardHeader, Avatar } from "@material-ui/core";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-const data = [{
-  id: 1,
-  Title: "Spaghetti Bolognese",
-  CreatedBy: "Jeroen Meus",
-  Description: "Spaghetti alla Bolognaise",
-  Liked: true
-},
-{
-    id: 2,
-    Title: "Stoofvlees",
-    CreatedBy: "Jeroen Meus",
-    Description: "Met frietjes",
-    Liked: false
-  },
-]
-
 const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 350
-  },
   media: {
     height: 140
   },
@@ -40,19 +21,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchAppBar() {
+export default function RecipeCard(props) {
   const classes = useStyles();
 
-  return ( data.map(d => 
+  return (
     <Card className={classes.card}>
       <CardHeader
         avatar={
-          <Avatar src="https://scontent.fbru2-1.fna.fbcdn.net/v/t1.0-9/19260293_10212076719087639_5730265156197589_n.jpg?_nc_cat=104&_nc_oc=AQkfN_WajIYaCSK96RJogF5SysK7Z9kwBqYEsppZArs5uxuHY2SROrkJauDYe2-cNZs&_nc_ht=scontent.fbru2-1.fna&oh=6684668a678e5f0dd8b8489ad061f517&oe=5E3B2782"></Avatar>
+          <Avatar src="https://scontent.fbru2-1.fna.fbcdn.net/v/t1.0-9/19260293_10212076719087639_5730265156197589_n.jpg?_nc_cat=104&_nc_oc=AQkfN_WajIYaCSK96RJogF5SysK7Z9kwBqYEsppZArs5uxuHY2SROrkJauDYe2-cNZs&_nc_ht=scontent.fbru2-1.fna&oh=6684668a678e5f0dd8b8489ad061f517&oe=5E3B2782">
+            M
+          </Avatar>
         }
-        title={d.Title}
-        subheader={d.CreatedBy}
+        title={props.recipe.Title}
+        subheader={props.recipe.CreatedBy}
         action={
-          <IconButton className={d.Liked ? classes.like : ''}>
+          <IconButton className={props.recipe.Liked ? classes.like : ""}>
             <FavoriteIcon />
           </IconButton>
         }
@@ -65,7 +48,7 @@ export default function SearchAppBar() {
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {d.Description}
+            {props.recipe.Description}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -75,5 +58,5 @@ export default function SearchAppBar() {
         </Button>
       </CardActions>
     </Card>
-  ));
+  );
 }

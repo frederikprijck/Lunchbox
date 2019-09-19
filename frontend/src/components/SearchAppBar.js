@@ -58,15 +58,6 @@ const useStyles = makeStyles(theme => ({
         width: 200,
       },
     },
-  }, 
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-  like: {
-      color : 'red'
   }
 }));
 
@@ -106,9 +97,6 @@ export default function SearchAppBar() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Typography variant="h2">
-              Lunchbox
-      </Typography>
       
     </div>
   );
