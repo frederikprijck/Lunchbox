@@ -34,6 +34,7 @@ namespace Lunchbox
                 options =>
                     options.UseNpgsql(connectionString)
                 );
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +51,10 @@ namespace Lunchbox
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:3000").AllowAnyMethod()
+            );
 
             app.UseMvc();
         }

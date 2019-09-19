@@ -21,20 +21,20 @@ namespace Lunchbox.Controllers
 
         [HttpGet]
         public IEnumerable<TEntity> Get() {
-            Log.Debug($"GET request on resource {0}", typeof(TEntity));
+            Log.Information($"GET request on resource {0}", typeof(TEntity));
             return _context.Set<TEntity>().ToList();
         }
 
         [HttpGet("{id}")]
         public TEntity Get(int id) {
-            Log.Debug($"GET request on resource {0} with ID {1}", typeof(TEntity), id);
+            Log.Information($"GET request on resource {0} with ID {1}", typeof(TEntity), id);
             return _context.Set<TEntity>().FirstOrDefault(x => x.Id == id);
         }
 
         [HttpPost]
         public IActionResult Create([FromBody] TEntity entity)
         {
-            Log.Debug($"POST request on resource {0}", typeof(TEntity));
+            Log.Information($"POST request on resource {0}", typeof(TEntity));
 
             // Check before cast. 'as' turns entity into null when it fails
             if (entity is AuditableDbEntity) {
@@ -51,7 +51,7 @@ namespace Lunchbox.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] TEntity entity)
         {
-            Log.Debug($"PUT request on resource {0}", typeof(TEntity));
+            Log.Information($"PUT request on resource {0}", typeof(TEntity));
 
             if (id != entity.Id)
             {
@@ -71,7 +71,7 @@ namespace Lunchbox.Controllers
         [HttpDelete]
         public IActionResult Delete([FromBody] TEntity entity)
         {
-            Log.Debug($"DELETE request on resource {0}", typeof(TEntity));
+            Log.Information($"DELETE request on resource {0}", typeof(TEntity));
 
             _context.Set<TEntity>().Remove(entity);
             _context.SaveChanges();

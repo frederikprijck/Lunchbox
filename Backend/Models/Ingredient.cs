@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 namespace Lunchbox.Models
 {
     public class Ingredient : AuditableDbEntity

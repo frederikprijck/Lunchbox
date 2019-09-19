@@ -40,7 +40,7 @@ namespace Lunchbox
         {
             Log.Logger =
                 new LoggerConfiguration()
-                    .MinimumLevel.Warning()
+                    .MinimumLevel.Information()
                     .WriteTo.Console()
                     .WriteTo.PostgreSQL(SerilogConfig.ConnectionString, SerilogConfig.TableName, SerilogConfig.ColumnWriters,
                                         respectCase: true, restrictedToMinimumLevel: LogEventLevel.Warning)
