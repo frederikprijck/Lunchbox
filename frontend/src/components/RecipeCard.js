@@ -32,8 +32,8 @@ export default function RecipeCard(props) {
             M
           </Avatar>
         }
-        title={props.recipe.Title}
-        subheader={props.recipe.CreatedBy}
+        title={props.recipe.title}
+        subheader={props.recipe.createdBy}
         action={
           <IconButton className={props.recipe.Liked ? classes.like : ""}>
             <FavoriteIcon />
@@ -48,7 +48,7 @@ export default function RecipeCard(props) {
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {props.recipe.Description}
+            {props.recipe.description}
           </Typography>
         </CardContent>
       </CardActionArea>
