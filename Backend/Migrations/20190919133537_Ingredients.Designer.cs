@@ -3,15 +3,17 @@ using System;
 using Lunchbox;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Lunchbox.Migrations
 {
     [DbContext(typeof(LunchboxContext))]
-    partial class LunchboxContextModelSnapshot : ModelSnapshot
+    [Migration("20190919133537_Ingredients")]
+    partial class Ingredients
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
